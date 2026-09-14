@@ -11,6 +11,7 @@ GitHub Pages で公開しています（Settings → Pages / Branch: `main` / Fo
 | 教材 | 出典 | 内容 |
 | --- | --- | --- |
 | [`food-on-the-rails.html`](food-on-the-rails.html) | Jeri Quinzio, *Food on the Rails* (2014) | 英語長文精読ノート「イギリスの鉄道と『駅の軽食堂』」。約840語／語彙109項目／全訳／設問6問（自動採点）／構文メモ16点 |
+| [`be-up-to.html`](be-up-to.html) | The Boy Who Harnessed the Wind (Lesson 12) | 英文法ノート「be up to・now・否定＋比較」。5タブ構成／例文／確認テスト |
 
 ## 構成ルール
 

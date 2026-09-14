@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>英語長文精読ノート｜Food on the Rails — イギリス鉄道と駅の軽食</title>
+<style>
+  :root{
+    --bg:#f7f5ef;
+    --card:#ffffff;
+    --ink:#23262b;
+    --ink-soft:#4b5158;
+    --muted:#7b8189;
+    --line:#e2ddd2;
+    --line-soft:#efebe2;
+    --accent:#2f4b7c;
+    --accent-soft:#eaf0f9;
+    --warm:#a8541b;
+    --warm-soft:#fbeee2;
+    --ok:#1f7a5c;
+    --ok-soft:#e6f4ee;
+    --ng:#b3352f;
+    --ng-soft:#fbecea;
+    --mark:#fff0b8;
+    --radius:12px;
+    --shadow:0 1px 2px rgba(35,38,43,.05), 0 6px 18px rgba(35,38,43,.05);
+    --jp:-apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic Medium", "Meiryo", sans-serif;
+    --en:"Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#15171b; --card:#1d2026; --ink:#e9e7e1; --ink-soft:#c3c6cb; --muted:#909599;
+      --line:#31363e; --line-soft:#272b32; --accent:#8fb2e8; --accent-soft:#1e2837;
+      --warm:#e0a072; --warm-soft:#2e2319; --ok:#6fcfa8; --ok-soft:#17291f;
+      --ng:#f0938c; --ng-soft:#2c1a19; --mark:#4a4020;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.25);
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--jp); line-height:1.8; font-size:16px;
+    padding-bottom:64px;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:0 18px}
+
+  /* ---------- header ---------- */
+  header.site{
+    background:linear-gradient(180deg, var(--accent-soft), transparent);
+    border-bottom:1px solid var(--line);
+    padding:30px 0 20px;
+  }
+  .eyebrow{font-size:12px; letter-spacing:.14em; color:var(--accent); font-weight:700; margin:0 0 8px}
+  h1.title{font-size:clamp(21px,4.4vw,29px); line-height:1.4; margin:0 0 6px; letter-spacing:.01em}
+  .subtitle{margin:0; color:var(--ink-soft); font-size:14px}
+  .chips{display:flex; flex-wrap:wrap; gap:7px; margin-top:14px}
+  .chip{
+    font-size:12px; padding:4px 10px; border-radius:999px;
+    background:var(--card); border:1px solid var(--line); color:var(--ink-soft);
+  }
+
+  /* ---------- tabs ---------- */
+  nav.tabs{
+    position:sticky; top:0; z-index:20; background:var(--bg);
+    border-bottom:1px solid var(--line); margin-bottom:26px;
+  }
+  .tablist{display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch}
+  .tablist::-webkit-scrollbar{display:none}
+  .tab{
+    appearance:none; background:none; border:0; border-bottom:2.5px solid transparent;
+    padding:13px 14px; font:inherit; font-size:14px; font-weight:600; color:var(--muted);
+    cursor:pointer; white-space:nowrap;
+  }
+  .tab:hover{color:var(--ink)}
+  .tab[aria-selected="true"]{color:var(--accent); border-bottom-color:var(--accent)}
+
+  .panel{display:none; animation:fade .18s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0; transform:translateY(3px)}to{opacity:1; transform:none}}
+
+  /* ---------- generic ---------- */
+  h2.sec{
+    font-size:16px; margin:34px 0 14px; padding-left:11px;
+    border-left:4px solid var(--accent); line-height:1.5;
+  }
+  h2.sec:first-child{margin-top:0}
+  .lead{color:var(--ink-soft); font-size:14px; margin:-6px 0 18px}
+  .toolbar{
+    display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+    margin-bottom:18px; padding:12px; background:var(--card);
+    border:1px solid var(--line); border-radius:var(--radius);
+  }
+  .btn{
+    appearance:none; font:inherit; font-size:13px; font-weight:600;
+    padding:7px 13px; border-radius:8px; cursor:pointer;
+    background:var(--card); color:var(--ink); border:1px solid var(--line);
+    transition:background .12s, border-color .12s;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent)}
+  .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent)}
+  .btn.primary:hover{opacity:.88; color:#fff}
+  .btn.on{background:var(--accent-soft); border-color:var(--accent); color:var(--accent)}
+  .spacer{flex:1}
+  .count{font-size:12px; color:var(--muted)}
+  input[type="search"]{
+    font:inherit; font-size:14px; padding:7px 11px; border-radius:8px;
+    border:1px solid var(--line); background:var(--card); color:var(--ink); min-width:170px; flex:1;
+  }
+  input[type="search"]:focus{outline:2px solid var(--accent); outline-offset:1px}
+
+  /* ---------- passage ---------- */
+  .para{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px 20px; margin-bottom:14px; box-shadow:var(--shadow);
+  }
+  .para-head{display:flex; align-items:center; gap:10px; margin-bottom:10px}
+  .pnum{
+    font-size:11px; font-weight:700; letter-spacing:.06em; color:var(--accent);
+    background:var(--accent-soft); padding:3px 9px; border-radius:999px;
+  }
+  .en{font-family:var(--en); font-size:17px; line-height:2.0; color:var(--ink)}
+  .en .indent{display:block}
+  .ja{
+    margin-top:14px; padding-top:14px; border-top:1px dashed var(--line);
+    font-size:15px; line-height:1.95; color:var(--ink-soft); display:none;
+  }
+  .para.show-ja .ja{display:block}
+  .quote-block{
+    margin:12px 0 0; padding-left:14px; border-left:3px solid var(--line);
+    font-family:var(--en); font-size:16px; line-height:1.95;
+  }
+  .ja .quote-block{font-family:var(--jp); font-size:14.5px}
+
+  .blank{
+    display:inline; border-bottom:2px solid var(--warm); cursor:pointer;
+    background:var(--warm-soft); padding:1px 4px; border-radius:3px;
+  }
+  .blank .lab{font-family:var(--jp); font-weight:700; color:var(--warm); font-size:14px}
+  .blank .ans{display:none; color:var(--warm)}
+  .blank.on .lab{display:none}
+  .blank.on .ans{display:inline}
+  u.ul{
+    text-decoration:none; border-bottom:1px solid var(--ink);
+    box-shadow:inset 0 -4px 0 -3px var(--ink);
+  }
+  u.ul sup{font-family:var(--jp); font-size:10px; color:var(--warm); font-weight:700}
+  mark{background:var(--mark); color:inherit; padding:0 2px; border-radius:2px}
+
+  .notes{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 20px; font-size:14px;
+  }
+  .notes dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:6px 16px}
+  .notes dt{font-family:var(--en); font-weight:600; white-space:nowrap}
+  .notes dd{margin:0; color:var(--ink-soft)}
+  @media (max-width:560px){
+    .notes dl{grid-template-columns:1fr; gap:2px}
+    .notes dd{margin:0 0 8px; padding-left:10px; border-left:2px solid var(--line-soft)}
+  }
+
+  /* ---------- vocab ---------- */
+  .filters{display:flex; flex-wrap:wrap; gap:6px}
+  .vgrid{display:grid; grid-template-columns:repeat(auto-fill, minmax(270px,1fr)); gap:10px}
+  .vcard{
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:12px 14px 38px; cursor:pointer; position:relative; transition:border-color .12s, opacity .12s;
+  }
+  .vcard:hover{border-color:var(--accent)}
+  .vcard.done{opacity:.45}
+  .vtop{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap}
+  .vword{font-family:var(--en); font-size:17px; font-weight:600; letter-spacing:.01em}
+  .vpos{font-size:11px; color:var(--muted); border:1px solid var(--line); padding:1px 6px; border-radius:4px}
+  .lv{font-size:10px; font-weight:700; padding:2px 7px; border-radius:999px; letter-spacing:.04em}
+  .lv-must{background:var(--ng-soft); color:var(--ng)}
+  .lv-adv{background:var(--accent-soft); color:var(--accent)}
+  .lv-ref{background:var(--line-soft); color:var(--muted)}
+  .vmean{margin-top:7px; font-size:15px; min-height:1.8em}
+  .vmean .hidden-txt{color:var(--muted); font-size:13px; letter-spacing:.08em}
+  .vnote{margin-top:5px; font-size:12.5px; color:var(--muted); line-height:1.7}
+  .vcard:not(.reveal) .vmean .real, .vcard:not(.reveal) .vnote{display:none}
+  .vcard.reveal .vmean .hidden-txt{display:none}
+  .vpara{position:absolute; top:10px; right:12px; font-size:10.5px; color:var(--muted)}
+  .vcheck{
+    position:absolute; bottom:10px; right:10px; font-size:11px; color:var(--muted);
+    border:1px solid var(--line); border-radius:6px; padding:2px 7px; background:var(--card);
+  }
+  .vcheck:hover{border-color:var(--ok); color:var(--ok)}
+
+  /* ---------- quiz ---------- */
+  .q{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px 20px; margin-bottom:16px; box-shadow:var(--shadow);
+  }
+  .qhead{display:flex; gap:10px; align-items:flex-start; margin-bottom:6px}
+  .qno{
+    flex:none; font-size:12px; font-weight:700; color:#fff; background:var(--accent);
+    width:26px; height:26px; border-radius:50%; display:grid; place-items:center; margin-top:2px;
+  }
+  .qtitle{font-weight:700; font-size:15.5px; line-height:1.6}
+  .qsub{font-size:13px; color:var(--muted); margin:2px 0 0}
+  .qtarget{
+    font-family:var(--en); font-size:16px; line-height:1.95; background:var(--line-soft);
+    border-radius:8px; padding:12px 14px; margin:12px 0;
+  }
+  .opts{display:grid; gap:7px; margin:12px 0 0}
+  .opt{
+    display:flex; gap:10px; align-items:flex-start; text-align:left; width:100%;
+    font:inherit; font-size:14.5px; line-height:1.7; cursor:pointer;
+    background:var(--card); border:1px solid var(--line); border-radius:9px; padding:9px 12px;
+    transition:border-color .12s, background .12s;
+  }
+  .opt .k{flex:none; font-weight:700; color:var(--accent); font-family:var(--en)}
+  .opt .t{font-family:var(--en); font-size:15px}
+  .opt.jp .t{font-family:var(--jp); font-size:14.5px}
+  .opt:hover{border-color:var(--accent)}
+  .opt.sel{border-color:var(--accent); background:var(--accent-soft)}
+  .opt.correct{border-color:var(--ok); background:var(--ok-soft)}
+  .opt.wrong{border-color:var(--ng); background:var(--ng-soft)}
+  .opt .mk{margin-left:auto; font-weight:700; font-size:15px}
+  .opt.correct .mk::after{content:"○"; color:var(--ok)}
+  .opt.wrong .mk::after{content:"×"; color:var(--ng)}
+  .sub-q{margin-top:16px}
+  .sub-label{font-weight:700; font-size:14px; color:var(--warm); margin-bottom:4px}
+  .sub-ctx{font-family:var(--en); font-size:15px; color:var(--ink-soft); line-height:1.9; margin-bottom:4px}
+
+  .exp{
+    display:none; margin-top:14px; padding:14px 16px; border-radius:10px;
+    background:var(--accent-soft); border:1px solid var(--line); font-size:14.5px; line-height:1.85;
+  }
+  .exp.show{display:block}
+  .exp h4{margin:0 0 6px; font-size:13px; letter-spacing:.06em; color:var(--accent)}
+  .exp ul{margin:8px 0 0; padding-left:20px}
+  .exp li{margin-bottom:5px}
+  .exp .ans-line{font-weight:700; color:var(--ok); font-size:15px}
+  .exp .en-cite{font-family:var(--en); font-style:italic}
+
+  textarea{
+    width:100%; font:inherit; font-size:15px; line-height:1.9; padding:12px;
+    border:1px solid var(--line); border-radius:9px; background:var(--card); color:var(--ink);
+    resize:vertical; min-height:96px;
+  }
+  textarea:focus{outline:2px solid var(--accent); outline-offset:1px}
+  .model{
+    margin-top:12px; padding:14px 16px; border-radius:10px; background:var(--ok-soft);
+    border:1px solid var(--line); font-size:15px; line-height:1.9; display:none;
+  }
+  .model.show{display:block}
+  .model h4{margin:0 0 6px; font-size:13px; letter-spacing:.06em; color:var(--ok)}
+  .model .pts{margin-top:12px; padding-top:10px; border-top:1px dashed var(--line); font-size:14px}
+  .model .pts ul{margin:6px 0 0; padding-left:20px}
+  .model .pts li{margin-bottom:4px}
+  .model .pts code{font-family:var(--en); font-weight:600; font-style:italic}
+
+  .score{
+    position:sticky; bottom:12px; margin-top:22px; z-index:15;
+    background:var(--accent); color:#fff; border-radius:999px; padding:11px 20px;
+    display:flex; align-items:center; gap:14px; box-shadow:0 6px 20px rgba(47,75,124,.3);
+    font-size:14px; font-weight:600;
+  }
+  .score .btn{background:rgba(255,255,255,.16); color:#fff; border-color:rgba(255,255,255,.35)}
+  .score .btn:hover{background:rgba(255,255,255,.28); color:#fff}
+
+  /* ---------- grammar ---------- */
+  .gitem{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    margin-bottom:10px; overflow:hidden;
+  }
+  .gitem summary{
+    cursor:pointer; padding:14px 18px; font-weight:600; font-size:15px;
+    list-style:none; display:flex; gap:10px; align-items:flex-start;
+  }
+  .gitem summary::-webkit-details-marker{display:none}
+  .gitem summary::before{content:"＋"; color:var(--accent); font-weight:700; flex:none}
+  .gitem[open] summary::before{content:"−"}
+  .gitem summary .gt{font-family:var(--en); font-style:italic; color:var(--accent)}
+  .gbody{padding:0 18px 16px 42px; font-size:14.5px; line-height:1.9; color:var(--ink-soft)}
+  .gbody .ex{font-family:var(--en); font-style:italic; background:var(--line-soft); padding:2px 6px; border-radius:4px}
+  .gbody p{margin:0 0 8px}
+
+  footer.site{
+    margin-top:46px; padding:22px 0 10px; border-top:1px solid var(--line);
+    font-size:12.5px; color:var(--muted); line-height:1.8;
+  }
+
+  @media print{
+    body{background:#fff; padding:0; font-size:11pt}
+    nav.tabs, .toolbar, .score, .vcheck, .btn{display:none !important}
+    .panel{display:block !important; page-break-before:always}
+    .panel:first-of-type{page-break-before:auto}
+    .para .ja, .exp, .model, .vcard .vmean .real, .vcard .vnote{display:block !important}
+    .vcard .vmean .hidden-txt{display:none !important}
+    .blank .lab{display:none !important}
+    .blank .ans{display:inline !important}
+    .gitem .gbody{display:block !important}
+    .para, .q, .vcard, .gitem{box-shadow:none; break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <p class="eyebrow">ENGLISH READING NOTE ／ 学習塾omiiko</p>
+    <h1 class="title">イギリスの鉄道と「駅の軽食堂」</h1>
+    <p class="subtitle">出典：Jeri Quinzio, <i>Food on the Rails: The Golden Era of Railroad Dining</i> (2014), Rowman &amp; Littlefield</p>
+    <div class="chips">
+      <span class="chip">約840語</span>
+      <span class="chip">設問6問</span>
+      <span class="chip">下線部和訳 ×2</span>
+      <span class="chip">語彙 109項目</span>
+      <span class="chip">難易度：やや難</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <div class="tablist" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-panel="passage">本文＋対訳</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="vocab">単語リスト</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="quiz">設問演習・解説</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="grammar">構文・文法メモ</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="summary">要旨マップ</button>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ============ PASSAGE ============ -->
+  <section class="panel active" id="panel-passage">
+    <div class="toolbar">
+      <button class="btn" id="btn-ja">全訳をすべて表示</button>
+      <button class="btn" id="btn-blank">空欄の答えを表示</button>
+      <span class="spacer"></span>
+      <span class="count" id="para-count"></span>
+    </div>
+    <p class="lead">段落カードをクリックすると、その段落だけ訳が開きます。橙色の空欄（イ・ロ・ハ・あ）もクリックで答えが出ます。</p>
+    <div id="paras"></div>
+
+    <h2 class="sec">語注（問題文に付されたもの）</h2>
+    <div class="notes">
+      <dl>
+        <dt>Banbury cakes</dt><dd>干しぶどうやスグリの実を詰めた楕円形のパイ</dd>
+        <dt>live on bread</dt><dd>原文では古風な表現 batten on buns が用いられている</dd>
+        <dt>Mugby Junction</dt><dd>Charles Dickens の短編集 <i>Mugby Junction</i>（1866）の舞台として設定された架空の駅</dd>
+        <dt>sepulchre</dt><dd>墓石</dd>
+        <dt><i>Brief Encounter</i></dt><dd>1945年制作のイギリス映画（邦題『逢びき』）</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ VOCAB ============ -->
+  <section class="panel" id="panel-vocab">
+    <div class="toolbar">
+      <input type="search" id="vsearch" placeholder="英単語・意味で検索…" autocomplete="off">
+      <button class="btn" id="btn-vreveal">意味をすべて表示</button>
+      <button class="btn" id="btn-vreset">チェックをリセット</button>
+    </div>
+    <div class="toolbar" style="padding-top:9px;padding-bottom:9px">
+      <div class="filters" id="vfilters">
+        <button class="btn on" data-lv="all">すべて</button>
+        <button class="btn" data-lv="must">必修</button>
+        <button class="btn" data-lv="adv">発展</button>
+        <button class="btn" data-lv="ref">参考</button>
+      </div>
+      <span class="spacer"></span>
+      <span class="count" id="vcount"></span>
+    </div>
+    <p class="lead">カードをクリックで意味を表示／非表示。右下の「覚えた」でカードを薄くできます（ページを閉じるとリセット）。<br>
+      <b>必修</b>＝入試で確実に覚えておきたい語／<b>発展</b>＝難関大レベル／<b>参考</b>＝文脈から推測できれば十分な語（鳥の名前など）。</p>
+    <div class="vgrid" id="vgrid"></div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="panel" id="panel-quiz">
+    <p class="lead">選択肢をクリック → 「答え合わせ」で採点と解説が出ます。和訳問題は自分の訳を書いてから模範解答を開いてください。</p>
+    <div id="quiz"></div>
+    <div class="score">
+      <span id="score-text">選択問題：未採点（全6問）</span>
+      <span class="spacer"></span>
+      <button class="btn" id="btn-grade">答え合わせ</button>
+      <button class="btn" id="btn-qreset">やり直す</button>
+    </div>
+  </section>
+
+  <!-- ============ GRAMMAR ============ -->
+  <section class="panel" id="panel-grammar">
+    <p class="lead">この長文で「読めないと崩れる」構文・語法を16点にしぼりました。見出しをクリックで開きます。</p>
+    <div class="toolbar">
+      <button class="btn" id="btn-gall">すべて開く</button>
+      <button class="btn" id="btn-gclose">すべて閉じる</button>
+    </div>
+    <div id="grammar"></div>
+  </section>
+
+  <!-- ============ SUMMARY ============ -->
+  <section class="panel" id="panel-summary">
+    <h2 class="sec">この文章の流れ（1行＝1段落）</h2>
+    <div id="flow"></div>
+    <h2 class="sec">読解のキーポイント</h2>
+    <div class="notes" style="line-height:1.95">
+      <p style="margin-top:0"><b>① 主題は「対比」——立派な鉄道 vs. ひどい食事。</b><br>
+      建設技術は世界の手本になるほど優秀（¶1前半）。しかし<i>その質は食事や快適さには及ばなかった</i>（¶1後半）。この「However」の一文が全体の主題文で、空欄ロがそこに置かれているのは偶然ではありません。</p>
+      <p><b>② 以降はすべて「食事がひどい」の実例。</b><br>
+      弁当持参と不平（¶2）→ 経済学者アクワースの苦言（¶3）→ ディケンズとトロロープの酷評（¶4）→ 映画でもネタにされ続けた（¶5）→ 停車時間が短すぎて飲めない・使い回される（¶6）。話者が入れ替わるだけで、言っていることは一つです。</p>
+      <p><b>③ 最後にどんでん返し——インドのほうがましだった。</b><br>
+      イギリス人が持ち込んだ制度なのに、インドの軽食堂のほうが評判がよい（¶7）。オーストラリアの記者はインドのカレーを見下したが、バートンは<i>逆の</i>見方をし、むしろヨーロッパ式食堂こそ最悪だと書く（¶8）。ここが設問5（あ）の根拠です。</p>
+      <p style="margin-bottom:0"><b>④ 設問はすべて「対比」を問うている。</b><br>
+      空欄補充3問はいずれも In fact／However／Although という論理標識の直後・直前。<b>接続語を見たら、前後がイコールか逆かを必ず確認する</b>——それだけで3問取れます。</p>
+    </div>
+  </section>
+
+  <footer class="site">
+    学習塾omiiko｜英語長文精読ノート<br>
+    本文の引用は Jeri Quinzio, <i>Food on the Rails: The Golden Era of Railroad Dining</i> (2014), Lanham: Rowman &amp; Littlefield による（設問の都合上、原文の一部に変更が加えられています）。<br>
+    ブラウザの印刷機能（⌘P / Ctrl+P）を使うと、すべての訳・解答・意味を開いた状態でPDF化できます。
+  </footer>
+</main>
+
+<script>
+/* =========================================================
+   DATA
+   ========================================================= */
+const PARAS = [
+  {
+    n: 1,
+    en: `The English were railroad pioneers, and their railway system was known for the high quality of its construction. In fact, <span class="blank" data-b="i"><span class="lab">［ イ ］</span><span class="ans">(C) the Americans and the French subsequently used English railroad technology as their model</span></span>. Attention to quality and detail did not slow the development of the British rail system. In 1843, 1,800 miles of railroad were open to traffic, and the trains carried 300,000 passengers a week. By 1899, 20,000 miles had opened, and passengers numbered close to 12,000,000. However, <span class="blank" data-b="ro"><span class="lab">［ ロ ］</span><span class="ans">(E) the quality of the first trains did not extend to food service or passengers&rsquo; comfort</span></span>. There were few amenities and little or nothing to eat onboard trains before the introduction of dining cars in the 1870s.`,
+    ja: `イギリス人は鉄道の先駆者であり、その鉄道網は建設の質の高さで知られていた。実際、<b>アメリカ人もフランス人も、その後イギリスの鉄道技術を手本とした</b>。質と細部へのこだわりが、イギリスの鉄道網の発展を遅らせることはなかった。1843年には1,800マイルの鉄道が開通し、列車は週に30万人の乗客を運んでいた。1899年までには2万マイルが開通し、乗客数は1,200万人近くに達した。しかし、<b>初期の列車の質の高さは、食事の提供や乗客の快適さにまでは及んでいなかった</b>。1870年代に食堂車が導入されるまで、車内には快適な設備はほとんどなく、食べるものもあるかないかという状態だった。`
+  },
+  {
+    n: 2,
+    en: `Some passengers packed lunch baskets to sustain themselves during trips. Those who hadn&rsquo;t brought anything simply grumbled about the lack of food. <u class="ul">As more rail lines were laid and trips grew longer, the British built a series of rail station refreshment rooms and railway hotels to provide food and accommodations for their passengers.<sup>(1)</sup></u> The refreshment rooms, also known as tearooms, offered simple meals and snacks&mdash;tea, soup, sandwiches, pork pies, Banbury cakes, and sausage rolls.`,
+    ja: `旅の間の空腹をしのぐために弁当のバスケットを詰めてくる乗客もいた。何も持ってこなかった人々は、ただ食べ物がないことに不平をこぼすだけだった。<b>より多くの路線が敷設され、旅程が長くなるにつれて、イギリス人は乗客に食事と宿泊施設を提供するために、駅の軽食堂と鉄道ホテルを次々に建設した。</b>ティールームとしても知られるその軽食堂では、紅茶、スープ、サンドイッチ、ポークパイ、バンベリーケーキ、ソーセージロールといった簡単な食事や軽食が出された。`
+  },
+  {
+    n: 3,
+    en: `Sir William Acworth was a British railway economist whose career spanned the late nineteenth and early twentieth centuries. He authored several books and studies on railway economics in the British Isles, Germany, India, and the United States. Although <span class="blank" data-b="ha"><span class="lab">［ ハ ］</span><span class="ans">(B) his primary focus was on the business and politics of railways</span></span>, he had strong opinions about the food that was available to railway travelers. Acworth believed there was much room for improvement in the English refreshment rooms. In his 1899 book, <i>The Railways of England</i>, he wrote, &ldquo;I travelled backwards and forwards across Lincolnshire for a long summer&rsquo;s day, some time back, and for twelve mortal hours had to live on bread.&rdquo; However, he acknowledged that the refreshments were better than they&rsquo;d been in the days when &ldquo;the tea and the soup at Mugby Junction rested substantially on the same foundation.&rdquo;`,
+    ja: `サー・ウィリアム・アクワースは、19世紀末から20世紀初頭にかけて活躍したイギリスの鉄道経済学者である。彼はブリテン諸島、ドイツ、インド、アメリカ合衆国の鉄道経済について、何冊もの著書や研究を執筆した。<b>彼の主たる関心は鉄道の経営と政治にあった</b>が、鉄道旅行者が口にできる食べ物についても強い意見を持っていた。アクワースは、イギリスの軽食堂には改善の余地が大いにあると考えていた。1899年の著書『イングランドの鉄道』で、彼はこう書いている。「少し前のことだが、私は夏の長い一日、リンカンシャーを行ったり来たり旅したことがあり、まる12時間、パンだけで食いつながねばならなかった」。もっとも彼は、「マグビー・ジャンクションの紅茶とスープが実質的に同じ土台からできていた」時代に比べれば、軽食類はましになったとも認めていた。`
+  },
+  {
+    n: 4,
+    en: `Charles Dickens had much the same opinion of the refreshments. He described the coffee as &ldquo;brown hot water thickened with flour,&rdquo; and the pork pie as &ldquo;glutinous lumps of gristle and grease.&rdquo; Anthony Trollope was even more <u class="ul">derisive<sup>(2)</sup></u>. He said the real disgrace of England was the railway&rsquo;s &ldquo;fossil sandwiches&rdquo;: <span class="quote-block">&ldquo;That whited sepulchre, fair enough outside, but so meagre, poor, and spiritless within, such a thing of shreds and parings, such a dab of food, telling us that the poor bone whence it was scraped had been made utterly bare before it was sent into the kitchen for the soup pot.&rdquo;</span>`,
+    ja: `チャールズ・ディケンズもその軽食についてほぼ同じ意見だった。彼はコーヒーを「小麦粉でとろみをつけた茶色いお湯」、ポークパイを「軟骨と脂のねばねばした塊」と評した。アンソニー・トロロープはさらに辛辣だった。イングランドの真の恥は鉄道の「化石サンドイッチ」だと彼は言った。<span class="quote-block">「あの白く塗った墓——外見だけは立派だが、中身はひどく貧相で乏しく生気がない。切れ端と削りくずの寄せ集めで、ほんのひとかけらの食べ物しか入っておらず、それを削ぎ取った哀れな骨は、スープ鍋のために厨房へ送られる前にすっかりしゃぶり尽くされていたのだと物語っている」。</span>`
+  },
+  {
+    n: 5,
+    en: `The railway sandwich&rsquo;s freshness, or lack thereof, was ridiculed for years and often was used as a metaphor for mediocrity. It was still being joked about in David Lean&rsquo;s classic film <i>Brief Encounter</i>, which was set in a 1938 station refreshment room. The characters played by Trevor Howard and Celia Johnson meet and fall in love as they wait for their trains and sip their tea. In the course of the film, a rude customer says to the waitress that they don&rsquo;t believe the sandwiches are fresh. The &ldquo;Milford Junction&rdquo; of the film was actually Carnforth Station, which still exists and has been restored to look the way it did in the late 1930s. Fans of the film are among its most faithful patrons.`,
+    ja: `鉄道のサンドイッチの新鮮さ、というよりその欠如は、長年にわたって嘲笑の的となり、しばしば「二流であること」の比喩として使われた。1938年の駅の軽食堂を舞台にしたデヴィッド・リーンの名作映画『逢びき』でも、まだそれがネタにされていた。トレヴァー・ハワードとシーリア・ジョンソンが演じる登場人物は、列車を待ちながら紅茶をすする中で出会い、恋に落ちる。映画の中には、無礼な客がウェイトレスに向かって、サンドイッチが新鮮だとは思えないと言う場面がある。映画に出てくる「ミルフォード・ジャンクション」は実際にはカーンフォース駅で、この駅は今も残っており、1930年代末当時の姿に復元されている。この映画のファンたちは、そこの最も忠実な常連客の一部となっている。`
+  },
+  {
+    n: 6,
+    en: `English refreshment stops were brief, sometimes just ten minutes. <u class="ul">Passengers complained that they were often so rushed that the train&rsquo;s departure bell rang before their coffee, tea, or soup had cooled enough to sip.<sup>(3)</sup></u> English writer Chris de Winter Hebron reported that once, due to a delay in a train&rsquo;s departure, passengers at a station actually saw their abandoned refreshments being dumped back into the urns and pots they had just been poured from, to be resold when the next train arrived.`,
+    ja: `イングランドの軽食のための停車時間は短く、わずか10分ということもあった。<b>乗客たちは、あまりにも急かされることが多いため、コーヒーや紅茶やスープがすすれるほど冷めないうちに列車の発車ベルが鳴ってしまう、と不平を言った。</b>イギリスの作家クリス・ド・ウィンター・ヘブロンの報告によれば、あるとき列車の発車が遅れたために、駅にいた乗客たちは、自分たちが置いていった飲み物が、たった今それが注がれたばかりの大型の容器やポットに戻され、次の列車が着いたら売り直されるところを実際に目撃したという。`
+  },
+  {
+    n: 7,
+    en: `The British instituted the station refreshment room system on railways in India in the mid-nineteenth century. Acworth quoted an article in an unidentified Australian newspaper that said Indian refreshment rooms were better than those in England. Dinner at the rooms on the line from Calcutta to Bombay, according to the article, consisted of &ldquo;soup and fish, beef, mutton, snipe, duck, partridge, quail, pastry, four or five different kinds of fruits, and the universal curry and rice &hellip;&rdquo;`,
+    ja: `イギリス人は19世紀半ば、インドの鉄道にも駅の軽食堂制度を導入した。アクワースは、インドの軽食堂はイングランドのものより良いと述べた、どこの新聞とも特定されていないオーストラリアの新聞記事を引用している。その記事によれば、カルカッタ発ボンベイ行きの路線の軽食堂での夕食は、「スープと魚、牛肉、羊肉、タシギ、鴨、ヤマウズラ、ウズラ、焼き菓子、四、五種類の果物、そしてどこにでもあるカレーとライス……」から成っていた。`
+  },
+  {
+    n: 8,
+    en: `The Australian writer was dismissive of the &ldquo;universal curry and rice&rdquo; of India, but, years later, author David Burton took the <span class="blank" data-b="a"><span class="lab">（ あ ）</span><span class="ans">(B) opposite</span></span> point of view in his book, <i>The Raj at Table</i>, writing that <span class="quote-block">every big station had three dining rooms on the platform&mdash;European, Hindu and Muslim. Anybody with any sense avoided the European one, except perhaps to buy a luke-warm soda or beer, for the food was as horrendous as it was over-priced. The Muslim dining rooms were quite a different story, however, and the delicious aromas of kababs and the pilaus which wafted from them provided a temptation to many a European traveller, provided they could turn a blind eye to the kitchen conditions out the back.</span>`,
+    ja: `そのオーストラリア人の書き手はインドの「どこにでもあるカレーライス」を見下していたが、何年も後に、作家デイヴィッド・バートンは著書『The Raj at Table』で<b>正反対の</b>見方をし、次のように書いている。<span class="quote-block">大きな駅にはどこでもプラットホームに三つの食堂——ヨーロッパ式、ヒンドゥー式、イスラム式——があった。多少とも分別のある者なら、ぬるいソーダかビールを買うためならともかく、ヨーロッパ式の食堂は避けた。料理は値段が法外なのと同じくらいひどかったからである。しかしイスラム式の食堂はまったく事情が違い、そこから漂ってくるケバブやピラフのおいしそうな香りは、多くのヨーロッパ人旅行者にとって誘惑となった——奥の厨房の衛生状態に目をつぶることさえできれば。</span>`
+  }
+];
+
+const VOCAB = [
+  // ¶1
+  {w:"pioneer", p:"名", m:"先駆者、開拓者", n:"railroad pioneers＝鉄道の草分け", lv:"must", para:1},
+  {w:"be known for ~", p:"熟", m:"〜で知られている", n:"be known as ~（〜として知られる）と区別", lv:"must", para:1},
+  {w:"construction", p:"名", m:"建設、工事、造り", n:"the high quality of its construction＝造りのよさ", lv:"must", para:1},
+  {w:"subsequently", p:"副", m:"その後、続いて", n:"subsequent（その後の）の副詞形", lv:"adv", para:1},
+  {w:"attention to detail", p:"熟", m:"細部への気配り、こだわり", n:"", lv:"adv", para:1},
+  {w:"slow", p:"動", m:"〜を遅らせる", n:"形容詞だけでなく他動詞。無生物主語で使われる", lv:"adv", para:1},
+  {w:"be open to traffic", p:"熟", m:"開通している", n:"traffic＝通行・交通", lv:"adv", para:1},
+  {w:"number", p:"動", m:"総計〜になる、〜に達する", n:"passengers numbered close to 12,000,000", lv:"adv", para:1},
+  {w:"close to ~", p:"熟", m:"〜近く（の数）", n:"nearly と同義", lv:"must", para:1},
+  {w:"extend to ~", p:"熟", m:"〜にまで及ぶ、広がる", n:"設問ロの正解を決める鍵", lv:"must", para:1},
+  {w:"amenity", p:"名", m:"（快適な）設備、アメニティ", n:"通例複数形 amenities", lv:"adv", para:1},
+  {w:"onboard", p:"形", m:"車内の、機内の、船内の", n:"on board（乗って）の形容詞化", lv:"adv", para:1},
+  {w:"little or nothing", p:"熟", m:"ほとんど、あるいはまったく無い", n:"little が既に否定的な意味であることに注意", lv:"adv", para:1},
+  {w:"dining car", p:"名", m:"食堂車", n:"", lv:"ref", para:1},
+  // ¶2
+  {w:"pack", p:"動", m:"（荷物・弁当を）詰める", n:"", lv:"must", para:2},
+  {w:"sustain oneself", p:"熟", m:"食いつなぐ、体力を保つ", n:"sustain＝支える・持ちこたえさせる", lv:"adv", para:2},
+  {w:"grumble about ~", p:"動", m:"〜についてぶつぶつ不平を言う", n:"complain より口の中でつぶやく感じ", lv:"adv", para:2},
+  {w:"lack", p:"名", m:"欠如、不足", n:"the lack of food＝食べ物がないこと", lv:"must", para:2},
+  {w:"lay ─ laid ─ laid", p:"動", m:"（線路などを）敷く、横たえる", n:"自動詞 lie─lay─lain（横たわる）と混同しない。ここは were laid（敷かれた）", lv:"must", para:2},
+  {w:"a series of ~", p:"熟", m:"一連の〜、次々と〜", n:"和訳(1)の採点ポイント", lv:"must", para:2},
+  {w:"refreshment room", p:"名", m:"（駅の）軽食堂、休憩室", n:"refreshment(s)＝軽い飲食物。この文章のキーワード", lv:"adv", para:2},
+  {w:"accommodations", p:"名", m:"宿泊施設、部屋", n:"「適応」の意味ではない。英では accommodation と単数", lv:"must", para:2},
+  {w:"also known as ~", p:"熟", m:"〜としても知られる（通称〜）", n:"略して a.k.a.", lv:"must", para:2},
+  // ¶3
+  {w:"economist", p:"名", m:"経済学者", n:"economics（経済学）／economy（経済）", lv:"must", para:3},
+  {w:"span", p:"動", m:"（期間・範囲）にわたる", n:"名詞なら「期間・全長」。橋を架ける意から", lv:"adv", para:3},
+  {w:"author", p:"動", m:"〜を執筆する", n:"名詞だけでなく動詞用法がある", lv:"adv", para:3},
+  {w:"the British Isles", p:"名", m:"ブリテン諸島", n:"isle＝島（＝island の詩的語）", lv:"ref", para:3},
+  {w:"primary", p:"形", m:"主要な、第一の", n:"設問ハの正解 his primary focus", lv:"must", para:3},
+  {w:"room", p:"名", m:"余地、スペース", n:"much room for improvement＝改善の余地が大いにある（不可算）", lv:"must", para:3},
+  {w:"available to ~", p:"形", m:"〜が利用できる、手に入る", n:"the food that was available to travelers", lv:"must", para:3},
+  {w:"backwards and forwards", p:"熟", m:"行ったり来たり、往復して", n:"", lv:"adv", para:3},
+  {w:"mortal", p:"形", m:"（強調して）まる〜、うんざりするほど長い", n:"本来は「死すべき、致命的な」。twelve mortal hours＝まる12時間も", lv:"ref", para:3},
+  {w:"live on ~", p:"熟", m:"〜を常食とする、〜で食いつなぐ", n:"live in（住む）と区別", lv:"must", para:3},
+  {w:"acknowledge", p:"動", m:"（事実だと）認める", n:"admit に近い。ここは「〜とも認めていた」", lv:"must", para:3},
+  {w:"substantially", p:"副", m:"実質的に、大部分は", n:"substance（実質）から", lv:"adv", para:3},
+  {w:"rest on ~", p:"熟", m:"〜に基づく、〜の上に成り立つ", n:"紅茶とスープが「同じ土台」＝同じ煮出し汁だった、という皮肉", lv:"adv", para:3},
+  {w:"foundation", p:"名", m:"土台、基礎", n:"", lv:"must", para:3},
+  // ¶4
+  {w:"much the same", p:"熟", m:"ほぼ同じ", n:"much が the same を強める", lv:"adv", para:4},
+  {w:"describe A as B", p:"熟", m:"AをBと評する／描写する", n:"as の後ろが引用句になっている", lv:"must", para:4},
+  {w:"thicken", p:"動", m:"濃くする、とろみをつける", n:"thick（厚い・濃い）の動詞形", lv:"adv", para:4},
+  {w:"flour", p:"名", m:"小麦粉", n:"flower（花）と同音", lv:"must", para:4},
+  {w:"glutinous", p:"形", m:"ねばねばした、粘着性の", n:"gluten（グルテン）と同語源", lv:"ref", para:4},
+  {w:"lump", p:"名", m:"塊、こぶ", n:"", lv:"adv", para:4},
+  {w:"gristle", p:"名", m:"（肉の）軟骨、すじ", n:"", lv:"ref", para:4},
+  {w:"grease", p:"名", m:"脂、油", n:"", lv:"adv", para:4},
+  {w:"derisive", p:"形", m:"あざけるような、嘲笑的な", n:"deride（あざける）の形容詞。設問3の出題語", lv:"adv", para:4},
+  {w:"ridicule", p:"動/名", m:"あざ笑う／嘲り", n:"ridiculous（ばかげた）と同語源。derisive の言い換え", lv:"must", para:4},
+  {w:"disgrace", p:"名", m:"不名誉、恥", n:"dis-（否定）＋grace（品位）", lv:"adv", para:4},
+  {w:"fossil", p:"名", m:"化石", n:"fossil sandwiches＝化石のように古いサンドイッチ", lv:"must", para:4},
+  {w:"whited sepulchre", p:"名", m:"白く塗った墓（＝外面だけ立派な偽善者）", n:"新約聖書マタイ伝の比喩。語注あり", lv:"ref", para:4},
+  {w:"fair", p:"形", m:"見た目のよい、きれいな", n:"「公平な」以外の語義。fair enough outside＝外見は十分立派", lv:"adv", para:4},
+  {w:"meagre (meager)", p:"形", m:"貧弱な、乏しい", n:"", lv:"adv", para:4},
+  {w:"spiritless", p:"形", m:"生気のない、気の抜けた", n:"", lv:"ref", para:4},
+  {w:"shreds and parings", p:"名", m:"切れ端と削りくず", n:"shred＝細切れ／pare＝皮をむく", lv:"ref", para:4},
+  {w:"a dab of ~", p:"熟", m:"ほんの少しの〜", n:"", lv:"ref", para:4},
+  {w:"whence", p:"関副", m:"そこから（＝from which）", n:"古語。the bone whence it was scraped", lv:"ref", para:4},
+  {w:"scrape", p:"動", m:"こそげ取る、削り取る", n:"", lv:"adv", para:4},
+  {w:"utterly", p:"副", m:"まったく、完全に", n:"completely の硬い語", lv:"must", para:4},
+  {w:"bare", p:"形", m:"むき出しの、何もない", n:"made utterly bare＝すっかり削ぎ落とされた", lv:"must", para:4},
+  // ¶5
+  {w:"or lack thereof", p:"熟", m:"あるいはその欠如", n:"thereof＝of it。「新鮮さ、いや新鮮でないこと」という皮肉表現", lv:"ref", para:5},
+  {w:"metaphor", p:"名", m:"比喩、隠喩", n:"", lv:"must", para:5},
+  {w:"mediocrity", p:"名", m:"平凡、二流であること", n:"mediocre（平凡な）の名詞形", lv:"adv", para:5},
+  {w:"be set in ~", p:"熟", m:"（物語が）〜を舞台としている", n:"set は過去分詞（無変化）", lv:"must", para:5},
+  {w:"in the course of ~", p:"熟", m:"〜の途中で、〜の間に", n:"", lv:"must", para:5},
+  {w:"rude", p:"形", m:"無礼な、失礼な", n:"", lv:"must", para:5},
+  {w:"restore", p:"動", m:"復元する、修復する、回復させる", n:"has been restored＝復元されている", lv:"must", para:5},
+  {w:"faithful", p:"形", m:"忠実な、常連の", n:"faith（信頼）から", lv:"must", para:5},
+  {w:"patron", p:"名", m:"常連客、ひいき客、後援者", n:"「パトロン＝後援者」だけではない", lv:"adv", para:5},
+  // ¶6
+  {w:"brief", p:"形", m:"短い、短時間の", n:"", lv:"must", para:6},
+  {w:"be rushed", p:"動", m:"急かされる、慌ただしくさせられる", n:"和訳(3)の急所", lv:"must", para:6},
+  {w:"departure", p:"名", m:"出発", n:"depart（出発する）の名詞。⇔arrival", lv:"must", para:6},
+  {w:"sip", p:"動", m:"すする、ちびちび飲む", n:"熱い飲み物に使う。和訳(3)で cool と対に", lv:"adv", para:6},
+  {w:"due to ~", p:"熟", m:"〜が原因で", n:"", lv:"must", para:6},
+  {w:"abandoned", p:"形", m:"置き去りにされた、放棄された", n:"abandon（見捨てる）の過去分詞", lv:"must", para:6},
+  {w:"dump", p:"動", m:"どさっと投げ入れる、捨てる", n:"dumped back into ~＝〜に戻し入れられる", lv:"adv", para:6},
+  {w:"urn", p:"名", m:"（湯茶用の）大型容器、つぼ", n:"", lv:"ref", para:6},
+  {w:"pour", p:"動", m:"注ぐ", n:"they had just been poured from＝そこから注がれたばかりの", lv:"must", para:6},
+  {w:"resell", p:"動", m:"売り直す、転売する", n:"to be resold＝売り直されることになる（結果の不定詞）", lv:"adv", para:6},
+  // ¶7
+  {w:"institute", p:"動", m:"（制度を）設ける、創設する", n:"名詞「研究所」だけではない", lv:"adv", para:7},
+  {w:"unidentified", p:"形", m:"正体不明の、特定されていない", n:"UFO の U。設問6(A)を切る鍵", lv:"adv", para:7},
+  {w:"quote", p:"動", m:"引用する", n:"quote an article＝記事を引用する（＝記事を書いたのではない）", lv:"must", para:7},
+  {w:"consist of ~", p:"熟", m:"〜から成る", n:"受動態にしない", lv:"must", para:7},
+  {w:"mutton", p:"名", m:"羊肉（マトン）", n:"", lv:"adv", para:7},
+  {w:"snipe", p:"名", m:"タシギ（鳥）", n:"", lv:"ref", para:7},
+  {w:"partridge", p:"名", m:"ヤマウズラ", n:"", lv:"ref", para:7},
+  {w:"quail", p:"名", m:"ウズラ", n:"動詞なら「おじけづく」", lv:"ref", para:7},
+  {w:"pastry", p:"名", m:"焼き菓子、練り生地", n:"", lv:"adv", para:7},
+  {w:"universal", p:"形", m:"どこにでもある、普遍的な", n:"the universal curry and rice＝お決まりのカレーライス", lv:"must", para:7},
+  // ¶8
+  {w:"dismissive of ~", p:"形", m:"〜を軽んじる、見下す", n:"dismiss（退ける）から。設問5の根拠語", lv:"adv", para:8},
+  {w:"point of view", p:"名", m:"見方、観点", n:"take the ~ point of view＝〜の立場をとる", lv:"must", para:8},
+  {w:"the Raj", p:"名", m:"（英国による）インド統治", n:"書名 The Raj at Table", lv:"ref", para:8},
+  {w:"anybody with any sense", p:"熟", m:"多少とも分別のある者なら誰でも", n:"any の強調用法", lv:"adv", para:8},
+  {w:"luke-warm", p:"形", m:"ぬるい、なまぬるい", n:"比喩で「気乗りしない」", lv:"adv", para:8},
+  {w:"horrendous", p:"形", m:"ひどい、ぞっとするような", n:"horror と同語源", lv:"adv", para:8},
+  {w:"over-priced", p:"形", m:"値段が高すぎる", n:"as horrendous as it was over-priced＝高いのと同じくらいひどい", lv:"adv", para:8},
+  {w:"a different story", p:"熟", m:"まったく別の話、事情が違う", n:"quite a different story で強調", lv:"must", para:8},
+  {w:"aroma", p:"名", m:"香り、芳香", n:"", lv:"must", para:8},
+  {w:"waft", p:"動", m:"（香りが）漂う、ふわりと流れる", n:"", lv:"ref", para:8},
+  {w:"temptation", p:"名", m:"誘惑", n:"tempt（誘惑する）の名詞", lv:"must", para:8},
+  {w:"many a + 単数名詞", p:"熟", m:"数多くの〜（文語）", n:"意味は複数だが動詞は単数扱い", lv:"adv", para:8},
+  {w:"provided (that) ...", p:"接", m:"もし…ならば、…という条件で", n:"providing / on condition that も同義", lv:"must", para:8},
+  {w:"turn a blind eye to ~", p:"熟", m:"〜を見て見ぬふりをする", n:"ネルソン提督の逸話に由来", lv:"must", para:8},
+  // 選択肢の語
+  {w:"flattering", p:"形", m:"お世辞の、へつらう、実物よりよく見せる", n:"設問3の誤答選択肢", lv:"adv", para:0},
+  {w:"indifferent", p:"形", m:"無関心な、どうでもよい", n:"be indifferent to ~。設問3の誤答選択肢", lv:"must", para:0},
+  {w:"inconsistent", p:"形", m:"一貫しない、矛盾した", n:"設問5の誤答選択肢", lv:"must", para:0},
+  {w:"terrific", p:"形", m:"すばらしい、すごい", n:"terrible（ひどい）と混同注意", lv:"must", para:0},
+  {w:"well-equipped", p:"形", m:"設備の整った", n:"equip（備え付ける）", lv:"adv", para:0},
+  {w:"remnant", p:"名", m:"残り、残骸", n:"設問6(E)の語", lv:"adv", para:0},
+  {w:"superb", p:"形", m:"見事な、極上の", n:"設問6(B)の語", lv:"adv", para:0}
+];
+
+const QUESTIONS = [
+  {
+    id:"q1", no:"1", type:"multi-blank",
+    title:"空欄 イ・ロ・ハ に入る最も適切なフレーズを選びなさい",
+    options:[
+      ["A","he was not critical against the British diplomatic policy at that time"],
+      ["B","his primary focus was on the business and politics of railways"],
+      ["C","the Americans and the French subsequently used English railroad technology as their model"],
+      ["D","the course meals being offered were terrific"],
+      ["E","the quality of the first trains did not extend to food service or passengers&rsquo; comfort"],
+      ["F","the railway passengers tended to prefer exotic meals"],
+      ["G","they had well-equipped refreshment rooms at every railway station"]
+    ],
+    subs:[
+      {key:"i",  label:"イ", ctx:"&hellip; known for the high quality of its construction. <b>In fact,</b> ［ イ ］. Attention to quality and detail did not slow &hellip;", ans:"C"},
+      {key:"ro", label:"ロ", ctx:"&hellip; passengers numbered close to 12,000,000. <b>However,</b> ［ ロ ］. There were few amenities and little or nothing to eat &hellip;", ans:"E"},
+      {key:"ha", label:"ハ", ctx:"<b>Although</b> ［ ハ ］, he had strong opinions about the food that was available to railway travelers.", ans:"B"}
+    ],
+    exp:`<h4>解説</h4>
+      <p class="ans-line">正解　イ＝(C)　ロ＝(E)　ハ＝(B)</p>
+      <p><b>この3問はすべて「論理標識の読み取り」です。</b>直前の In fact／However／Although を見て、前後がイコールなのか逆なのかを決めるだけで解けます。</p>
+      <ul>
+        <li><b>イ（In fact ＝ 前文の言い換え・補強）</b>：前文は「建設の質の高さで知られていた」。それを裏づける具体例は「アメリカ人とフランス人が<span class="en-cite">English railroad technology</span>を手本にした」(C)。直後の文も「質と細部へのこだわり」と続き、話題が一貫します。</li>
+        <li><b>ロ（However ＝ 逆接）</b>：前までは「路線も乗客も激増した」という成功談。直後は「快適な設備はほとんどなく、食べ物もなかった」。この2つを橋渡しできるのは「初期の列車の質は<span class="en-cite">food service or passengers&rsquo; comfort</span>には及ばなかった」(E)だけ。<b>extend to（〜にまで及ぶ）</b>が決め手です。</li>
+        <li><b>ハ（Although ＝ 譲歩）</b>：後半が「食べ物について強い意見を持っていた」。譲歩として自然なのは「本業は鉄道の<span class="en-cite">business and politics</span>だった（＝食の専門家ではない）」(B)。直前2文で「鉄道経済学者」「鉄道経済の著書」と紹介されている点とも合致します。</li>
+      </ul>
+      <p><b>誤答の切り方</b>：(G)「どの駅にも設備の整った軽食堂があった」は本文全体（軽食堂は不評）と正反対。(D)「コース料理がすばらしかった」(F)「乗客はエキゾチックな料理を好んだ」も本文に根拠なし。(A)「外交政策」は話題そのものが登場しません。</p>`
+  },
+  {
+    id:"q2", no:"2", type:"translate",
+    title:"下線部(1)を日本語に訳しなさい",
+    target:`As more rail lines were laid and trips grew longer, the British built a series of rail station refreshment rooms and railway hotels to provide food and accommodations for their passengers.`,
+    model:`より多くの鉄道路線が敷設され、旅の行程が長くなるにつれて、イギリス人は、乗客に食事と宿泊施設を提供するために、駅の軽食堂と鉄道ホテルを次々に建設した。`,
+    points:[
+      `<code>As</code>：「〜につれて」。比例を表す接続詞。時「〜とき」や理由「〜ので」でも減点はされにくいが、比例が最も自然。`,
+      `<code>were laid</code>：lay（敷く）─ laid ─ laid の受動態。<b>lie（横たわる）と取り違えて「置かれた」「横たわった」としない</b>。`,
+      `<code>grew longer</code>：grow＋比較級で「だんだん〜になる」。「旅（行程・所要時間）が長くなる」。`,
+      `<code>the British</code>：the＋形容詞＝複数普通名詞。「イギリス人（は）」。「英国」でも可。`,
+      `<code>a series of ~</code>：「一連の〜」。ここは「次々に」「いくつも」と処理すると自然。`,
+      `<code>refreshment rooms</code>：「（駅の）軽食堂・食堂・休憩室」。第2段落後半に tearooms と言い換えがあるので推測可能。`,
+      `<code>to provide ...</code>：目的を表す副詞的用法。「〜を提供するために」。`,
+      `<code>accommodations</code>：「宿泊施設・宿泊設備」。<b>「適応」「調節」としないこと。</b>`
+    ]
+  },
+  {
+    id:"q3", no:"3", type:"choice",
+    title:"下線部(2) derisive に最も近い意味の語を選びなさい",
+    ctx:`Anthony Trollope was even more <b>derisive</b>.`,
+    options:[["A","flattering"],["B","indifferent"],["C","praising"],["D","ridiculing"]],
+    ans:"D",
+    exp:`<h4>解説</h4>
+      <p class="ans-line">正解　(D) ridiculing（あざける、ばかにする）</p>
+      <ul>
+        <li><b>文脈から</b>：直前でディケンズがコーヒーを「小麦粉入りの茶色いお湯」、ポークパイを「軟骨と脂の塊」と<b>こき下ろしている</b>。そこへ <span class="en-cite">Trollope was <b>even more</b> derisive</span>（さらに一層 derisive だった）と続き、実際に「イングランドの恥」「化石サンドイッチ」と罵倒が続く。つまり derisive は<b>悪口の方向</b>の語。</li>
+        <li><b>語源から</b>：de-（下へ）＋ridere（笑う）＝「見下して笑う」。同語源の <span class="en-cite">ridicule / ridiculous</span> がそのまま選択肢(D)にあります。実際、第5段落にも <span class="en-cite">was ridiculed for years</span> と同じ語が出てきます。</li>
+        <li>(A) flattering「お世辞を言う」、(C) praising「ほめる」は正反対。(B) indifferent「無関心な」では even more（さらに一層）という比較が成立しません。</li>
+      </ul>`
+  },
+  {
+    id:"q4", no:"4", type:"translate",
+    title:"下線部(3)を日本語に訳しなさい",
+    target:`Passengers complained that they were often so rushed that the train&rsquo;s departure bell rang before their coffee, tea, or soup had cooled enough to sip.`,
+    model:`乗客たちは、あまりにも急かされることが多いので、コーヒーや紅茶やスープが口をつけられるほど冷めないうちに列車の発車ベルが鳴ってしまう、と不平を言った。`,
+    points:[
+      `<code>complained that ...</code>：「…と不平を言った／苦情を述べた」。that 節全体が不平の内容。`,
+      `<code>so rushed that ...</code>：<b>so 〜 that ... 構文</b>。「あまりに急かされるので…」。often を訳に入れて「〜することが多く」とすると自然。`,
+      `<code>were rushed</code>：受動態。「急かされる／せき立てられる」。「急いだ」ではなく<b>「急がされた」</b>。`,
+      `<code>before ... had cooled</code>：「〜が冷める前に」＝日本語では<b>「冷めないうちに」</b>とすると自然。had cooled は rang より前という時間関係を示す過去完了。`,
+      `<code>enough to sip</code>：「すすれるほど（十分に）」。形容詞・動詞＋enough to do の語順。`,
+      `<code>the train&rsquo;s departure bell rang</code>：「列車の発車ベルが鳴った」。`,
+      `全体の骨組み：<b>Passengers complained that [they were so rushed that [the bell rang before ~ had cooled ~]]</b>。that 節が二重に入れ子になっている点を崩さないこと。`
+    ]
+  },
+  {
+    id:"q5", no:"5", type:"choice",
+    title:"（ あ ）に入る最も適切な語を選びなさい",
+    ctx:`The Australian writer was dismissive of the &ldquo;universal curry and rice&rdquo; of India, <b>but</b>, years later, author David Burton took the （ あ ） point of view &hellip;`,
+    options:[["A","inconsistent"],["B","opposite"],["C","original"],["D","same"]],
+    ans:"B",
+    exp:`<h4>解説</h4>
+      <p class="ans-line">正解　(B) opposite（正反対の）</p>
+      <ul>
+        <li><b>but が決め手</b>：前半「オーストラリアの書き手はインドのカレーライスを<span class="en-cite">dismissive of</span>（見下して）いた」→ but →「バートンは（　あ　）な見方をした」。逆接なので<b>逆の立場</b>＝opposite。</li>
+        <li><b>引用部分が裏づけ</b>：バートンはヨーロッパ式食堂を「値段が高いのと同じくらいひどい」と切り捨て、イスラム式食堂の<span class="en-cite">delicious aromas of kababs and the pilaus</span>を称賛しています。つまりインドの食事を高く評価しており、オーストラリアの書き手と真逆。</li>
+        <li>(D) same を選ぶと but と矛盾。(A) inconsistent「矛盾した」、(C) original「独自の」は、前の立場との<b>対比</b>を表せません。</li>
+      </ul>`
+  },
+  {
+    id:"q6", no:"6", type:"multi",
+    title:"本文の内容と合致する文を2つ選びなさい",
+    pick:2,
+    options:[
+      ["A","Acworth wrote in an article in an Australian newspaper that soup in India was better than that in England."],
+      ["B","Both Dickens and Trollope wrote that the food at the railroad refreshment rooms tasted superb."],
+      ["C","In the early years of the British rail system, some passengers brought their own food."],
+      ["D","Refreshment rooms in Australia offered a variety of food including fish, beef, pastry, fruits, and so on."],
+      ["E","Remnants left by the passengers at English refreshment rooms were sometimes reused and offered to the next ones."]
+    ],
+    ans:["C","E"],
+    exp:`<h4>解説</h4>
+      <p class="ans-line">正解　(C)　(E)</p>
+      <ul>
+        <li><b>(C)〇</b>　第2段落冒頭 <span class="en-cite">Some passengers packed lunch baskets to sustain themselves during trips.</span>「弁当のバスケットを詰めてくる乗客もいた」＝自分の食べ物を持参した、と一致。食堂車導入（1870年代）前の話なので「初期」も正しい。</li>
+        <li><b>(E)〇</b>　第6段落末 <span class="en-cite">passengers &hellip; saw their abandoned refreshments being dumped back into the urns and pots &hellip; to be resold when the next train arrived.</span>「置いていかれた飲み物が容器に戻され、次の列車が来たら売り直された」＝残り物が再利用されて次の客に出された、と一致。</li>
+        <li><b>(A)×</b>　アクワースはオーストラリアの新聞記事を<b>引用した</b>(<span class="en-cite">quoted an article</span>)のであって、記事を<b>書いた</b>のではない。しかもその新聞は <span class="en-cite">unidentified</span>（どこの新聞か不明）。<b>「引用した／書いた」のすり替え</b>は内容一致問題の定番の罠です。</li>
+        <li><b>(B)×</b>　両者とも酷評しています（「小麦粉入りの茶色いお湯」「軟骨と脂の塊」「化石サンドイッチ」）。superb（極上の）は正反対。</li>
+        <li><b>(D)×</b>　魚・牛肉・焼き菓子・果物…という献立は<b>インド</b>（カルカッタ─ボンベイ線）の軽食堂の話。オーストラリアは<b>記事を載せた新聞</b>の国であって、料理の場所ではない。<b>地名のすり替え</b>にも注意。</li>
+      </ul>`
+  }
+];
+
+const GRAMMAR = [
+  {t:"In fact / However / Although", d:`<p>空欄補充3問の正解はすべてこの3語で決まりました。<b>In fact＝前文の補強（イコール）</b>、<b>However＝逆接（反対）</b>、<b>Although＝譲歩（S+Vだが）</b>。</p><p>長文では、空欄の中身を考える前に<b>空欄の直前・直後にある論理標識を丸で囲む</b>のが最短ルートです。</p>`},
+  {t:"Attention to quality and detail did not slow the development &hellip;", d:`<p><b>無生物主語＋他動詞 slow</b>。「質と細部への配慮が発展を遅らせることはなかった」。</p><p>日本語にするときは「〜のおかげで／〜だからといって」と副詞的に処理すると自然：「質にこだわったからといって、発展が遅れることはなかった」。</p>`},
+  {t:"passengers numbered close to 12,000,000", d:`<p>number は<b>自動詞で「総計〜になる」</b>。「乗客数は1200万人近くに達した」。</p><p>同種の「数字を表す自動詞」：<span class="ex">amount to</span>（総計〜になる）、<span class="ex">come to</span>（合計〜になる）、<span class="ex">run to</span>（〜に及ぶ）。</p>`},
+  {t:"Those who hadn&rsquo;t brought anything simply grumbled &hellip;", d:`<p><b>those who ~＝「〜する人々」</b>。those は people の代用。</p><p>過去完了 hadn&rsquo;t brought は「（乗る前に）持ってきていなかった」という<b>大過去</b>。時制のズレを訳に出すと「何も持ってきていなかった人々は」。</p>`},
+  {t:"As more rail lines were laid and trips grew longer", d:`<p>接続詞 as の<b>比例用法「〜につれて」</b>。as が導く節に<b>比較級</b>（more, longer）があれば比例と判断してほぼ間違いありません。</p><p>lay─laid─laid（敷く／他動詞）と lie─lay─lain（横たわる／自動詞）は入試頻出。ここは受動態 <span class="ex">were laid</span> なので他動詞の lay。</p>`},
+  {t:"the refreshments were better than they&rsquo;d been in the days when &hellip;", d:`<p><b>比較＋関係副詞 when</b>。than 節の they&rsquo;d been ＝ they had been（それ以前の状態）。</p><p>「〈紅茶とスープが同じ土台から作られていた〉時代よりはましだった」。when 以下が the days を修飾しています。</p>`},
+  {t:"the poor bone whence it was scraped", d:`<p><b>whence＝from which</b>（そこから）。古語・文語で、聖書や19世紀の文章に出ます。</p><p>同種：<span class="ex">whither</span>＝to which／<span class="ex">thence</span>＝from there／<span class="ex">thereof</span>＝of it（第5段落 <span class="ex">or lack thereof</span>）。読めれば十分で、書ける必要はありません。</p>`},
+  {t:"so rushed that &hellip; before &hellip; had cooled enough to sip", d:`<p>和訳(3)の急所。3つの構文が入れ子になっています。</p><p>① <b>so 〜 that ...</b>「あまりに〜なので…」／② <b>before S had p.p.</b>「〜する前に」→日本語では<b>「〜しないうちに」</b>／③ <b>形容詞＋enough to do</b>「…するのに十分なほど〜」。</p><p>「<b>すすれるほど冷める前に</b>ベルが鳴る」＝「<b>冷めないうちに</b>ベルが鳴る」。日本語としてどちらが自然かを最後に必ず確認すること。</p>`},
+  {t:"the urns and pots they had just been poured from", d:`<p><b>前置詞が後ろに残った関係代名詞節</b>。目的格の関係代名詞が省略されています。</p><p>元の形：<span class="ex">the urns and pots (which) they had just been poured <b>from</b></span> ＝ <span class="ex">from which they had just been poured</span>「たった今それらが注がれたばかりの容器やポット」。文末の from を見落とすと意味が取れません。</p>`},
+  {t:"to be resold when the next train arrived", d:`<p><b>結果を表す to 不定詞</b>。「（戻されて）次の列車が来たら売り直されることになる」。</p><p>受動の不定詞 <span class="ex">to be + p.p.</span> の形。目的（〜するために）と取ると「誰が意図したのか」が不自然になるので、ここは結果で読みます。</p>`},
+  {t:"the food was as horrendous as it was over-priced", d:`<p><b>as 〜 as の同等比較</b>だが、比較しているのは<b>同一物の2つの性質</b>。「その料理は、値段が高すぎるのと同じくらいひどかった」。</p><p>つまり<b>「高いうえにまずい」</b>という両方の悪口。<span class="ex">He is as clever as he is diligent.</span>（勤勉でもあり利口でもある）と同じ型です。</p>`},
+  {t:"many a European traveller", d:`<p><b>many a＋単数名詞＝「数多くの〜」</b>。意味は複数でも、動詞・代名詞は単数扱いが原則（文語・詩的表現）。</p><p><span class="ex">Many a man has tried.</span>＝多くの人が挑戦してきた。</p>`},
+  {t:"provided they could turn a blind eye &hellip;", d:`<p><b>provided (that) ＝ if</b>「…という条件で、もし…ならば」。過去分詞が接続詞化したもの。</p><p>同型：<span class="ex">providing (that)</span>／<span class="ex">given (that)</span>（…を考慮すると）／<span class="ex">supposing (that)</span>（もし…なら）。</p><p><span class="ex">turn a blind eye to ~</span>＝「〜を見て見ぬふりをする」。ここでは「厨房の衛生状態には目をつぶれば」という、おいしさへの皮肉なオチ。</p>`},
+  {t:"Fans of the film are among its most faithful patrons.", d:`<p><b>among＋最上級</b>＝「最も〜なものの一つ（部類）に入る」。one of the most ~ と同じ発想。</p><p>「映画のファンたちは、その（カーンフォース駅の）最も忠実な常連客の一部となっている」。</p>`},
+  {t:"It was still being joked about &hellip;", d:`<p><b>過去進行形の受動態（was being p.p.）＋句動詞の受動</b>。</p><p>joke about ~（〜をネタにする）が受動になると about が残ります。<span class="ex">was still being joked about</span>＝「まだネタにされ続けていた」。前項の <span class="ex">poured from</span> と同じ、<b>前置詞が取り残される</b>パターン。</p>`},
+  {t:"the food that was available to railway travelers", d:`<p><span class="ex">available</span>は「利用できる・入手できる」。<b>人＋to／物＋for</b>で「〜が使える」。</p><p>直訳「鉄道旅行者にとって入手可能な食べ物」→自然な日本語では<b>「鉄道の旅で口にできる食べ物」</b>。available は直訳のままにしない方が読みやすくなる典型語です。</p>`}
+];
+
+const FLOW = [
+  ["¶1","イギリス鉄道は建設の質で世界の手本。路線も乗客も激増。<b>しかし食事と快適さは別問題だった。</b>","main"],
+  ["¶2","乗客は弁当持参か、不平を言うだけ。長距離化に伴い、駅の軽食堂と鉄道ホテルが作られた。",""],
+  ["¶3","鉄道経済学者アクワース——「まる12時間パンだけだった」。改善の余地が大いにある。",""],
+  ["¶4","ディケンズ「小麦粉入りの茶色いお湯」。トロロープはさらに辛辣「化石サンドイッチ＝白く塗った墓」。",""],
+  ["¶5","サンドイッチの不味さは「二流」の代名詞に。1945年の映画『逢びき』でもまだネタにされた。",""],
+  ["¶6","停車はわずか10分。飲む前にベルが鳴る。<b>残った飲み物は容器に戻され、次の客に売られた。</b>",""],
+  ["¶7","イギリスはインドにも同じ制度を導入。ところがインドの軽食堂の方が評判が良かった。","turn"],
+  ["¶8","豪の記者はインドのカレーを軽蔑。だがバートンは<b>逆の見方</b>——最悪なのはヨーロッパ式食堂の方だ。","turn"]
+];
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+function el(html){const t=document.createElement("template");t.innerHTML=html.trim();return t.content.firstElementChild;}
+
+// --- passage ---
+const parasBox = document.getElementById("paras");
+PARAS.forEach(p=>{
+  const card = el(`<article class="para">
+    <div class="para-head"><span class="pnum">PARA ${p.n}</span><button class="btn btn-ja-one">訳を見る</button></div>
+    <div class="en">${p.en}</div>
+    <div class="ja">${p.ja}</div>
+  </article>`);
+  card.querySelector(".btn-ja-one").addEventListener("click", e=>{
+    e.stopPropagation();
+    card.classList.toggle("show-ja");
+    e.target.textContent = card.classList.contains("show-ja") ? "訳を隠す" : "訳を見る";
+  });
+  parasBox.appendChild(card);
+});
+document.getElementById("para-count").textContent = `全${PARAS.length}段落`;
+
+parasBox.addEventListener("click", e=>{
+  const b = e.target.closest(".blank");
+  if(b){ b.classList.toggle("on"); }
+});
+
+let jaOn = false;
+document.getElementById("btn-ja").addEventListener("click", e=>{
+  jaOn = !jaOn;
+  document.querySelectorAll("#paras .para").forEach(c=>{
+    c.classList.toggle("show-ja", jaOn);
+    c.querySelector(".btn-ja-one").textContent = jaOn ? "訳を隠す" : "訳を見る";
+  });
+  e.target.textContent = jaOn ? "全訳をすべて隠す" : "全訳をすべて表示";
+  e.target.classList.toggle("on", jaOn);
+});
+
+let blankOn = false;
+document.getElementById("btn-blank").addEventListener("click", e=>{
+  blankOn = !blankOn;
+  document.querySelectorAll(".blank").forEach(b=>b.classList.toggle("on", blankOn));
+  e.target.textContent = blankOn ? "空欄の答えを隠す" : "空欄の答えを表示";
+  e.target.classList.toggle("on", blankOn);
+});
+
+// --- vocab ---
+const LVNAME = {must:"必修", adv:"発展", ref:"参考"};
+const vgrid = document.getElementById("vgrid");
+VOCAB.forEach((v,i)=>{
+  const card = el(`<div class="vcard" data-lv="${v.lv}" data-i="${i}">
+    <span class="vpara">${v.para ? "¶"+v.para : "選択肢"}</span>
+    <div class="vtop">
+      <span class="vword">${v.w}</span>
+      <span class="vpos">${v.p}</span>
+      <span class="lv lv-${v.lv}">${LVNAME[v.lv]}</span>
+    </div>
+    <div class="vmean"><span class="hidden-txt">— クリックで意味 —</span><span class="real">${v.m}</span></div>
+    ${v.n ? `<div class="vnote">${v.n}</div>` : ""}
+    <button class="vcheck">覚えた</button>
+  </div>`);
+  card.addEventListener("click", ()=>card.classList.toggle("reveal"));
+  card.querySelector(".vcheck").addEventListener("click", e=>{
+    e.stopPropagation();
+    card.classList.toggle("done");
+    e.target.textContent = card.classList.contains("done") ? "戻す" : "覚えた";
+    updateVCount();
+  });
+  vgrid.appendChild(card);
+});
+
+function updateVCount(){
+  const all = [...document.querySelectorAll(".vcard")];
+  const shown = all.filter(c=>c.style.display !== "none");
+  const done = shown.filter(c=>c.classList.contains("done")).length;
+  document.getElementById("vcount").textContent = `表示 ${shown.length} 語／覚えた ${done} 語`;
+}
+
+let vLevel = "all";
+function applyVFilter(){
+  const q = document.getElementById("vsearch").value.trim().toLowerCase();
+  document.querySelectorAll(".vcard").forEach(c=>{
+    const v = VOCAB[+c.dataset.i];
+    const hitLv = (vLevel === "all" || v.lv === vLevel);
+    const hitQ = !q || (v.w+" "+v.m+" "+v.n).toLowerCase().includes(q);
+    c.style.display = (hitLv && hitQ) ? "" : "none";
+  });
+  updateVCount();
+}
+document.getElementById("vsearch").addEventListener("input", applyVFilter);
+document.getElementById("vfilters").addEventListener("click", e=>{
+  const b = e.target.closest("button[data-lv]");
+  if(!b) return;
+  vLevel = b.dataset.lv;
+  document.querySelectorAll("#vfilters .btn").forEach(x=>x.classList.toggle("on", x===b));
+  applyVFilter();
+});
+let vRevealOn = false;
+document.getElementById("btn-vreveal").addEventListener("click", e=>{
+  vRevealOn = !vRevealOn;
+  document.querySelectorAll(".vcard").forEach(c=>c.classList.toggle("reveal", vRevealOn));
+  e.target.textContent = vRevealOn ? "意味をすべて隠す" : "意味をすべて表示";
+  e.target.classList.toggle("on", vRevealOn);
+});
+document.getElementById("btn-vreset").addEventListener("click", ()=>{
+  document.querySelectorAll(".vcard").forEach(c=>{
+    c.classList.remove("done");
+    c.querySelector(".vcheck").textContent = "覚えた";
+  });
+  updateVCount();
+});
+updateVCount();
+
+// --- quiz ---
+const quizBox = document.getElementById("quiz");
+const state = {}; // key -> selection
+
+QUESTIONS.forEach(q=>{
+  let inner = "";
+  if(q.type === "multi-blank"){
+    inner += `<div class="opts" style="margin-bottom:6px">` +
+      q.options.map(([k,t])=>`<div class="opt" style="cursor:default" data-static="1"><span class="k">(${k})</span><span class="t">${t}</span></div>`).join("") +
+      `</div>`;
+    q.subs.forEach(s=>{
+      inner += `<div class="sub-q">
+        <div class="sub-label">空欄 ${s.label}</div>
+        <div class="sub-ctx">${s.ctx}</div>
+        <div class="opts" style="grid-template-columns:repeat(auto-fill,minmax(64px,1fr));display:grid" data-key="${q.id}_${s.key}">
+        ${q.options.map(([k])=>`<button class="opt" data-k="${k}" style="justify-content:center"><span class="k">${k}</span><span class="mk"></span></button>`).join("")}
+        </div>
+      </div>`;
+    });
+  } else if(q.type === "choice" || q.type === "multi"){
+    if(q.ctx) inner += `<div class="qtarget">${q.ctx}</div>`;
+    if(q.type === "multi") inner += `<p class="qsub">※ 2つ選んでください</p>`;
+    inner += `<div class="opts" data-key="${q.id}">` +
+      q.options.map(([k,t])=>`<button class="opt${q.type==="multi"?"":""}" data-k="${k}"><span class="k">(${k})</span><span class="t">${t}</span><span class="mk"></span></button>`).join("") +
+      `</div>`;
+  } else if(q.type === "translate"){
+    inner += `<div class="qtarget">${q.target}</div>
+      <textarea placeholder="ここに自分の訳を書いてから、模範解答を開きましょう。"></textarea>
+      <div style="margin-top:10px"><button class="btn primary btn-model">模範解答と採点ポイントを見る</button></div>
+      <div class="model">
+        <h4>模範解答</h4>
+        <div>${q.model}</div>
+        <div class="pts"><b>採点ポイント</b>
+          <ul>${q.points.map(p=>`<li>${p}</li>`).join("")}</ul>
+        </div>
+      </div>`;
+  }
+
+  const card = el(`<article class="q" id="${q.id}">
+    <div class="qhead"><span class="qno">${q.no}</span><div><div class="qtitle">${q.title}</div></div></div>
+    ${inner}
+    ${q.exp ? `<div class="exp">${q.exp}</div>` : ""}
+  </article>`);
+
+  // choice handlers
+  card.querySelectorAll(".opts[data-key]").forEach(group=>{
+    const key = group.dataset.key;
+    group.addEventListener("click", e=>{
+      const btn = e.target.closest(".opt");
+      if(!btn || btn.dataset.static) return;
+      if(q.type === "multi"){
+        const cur = state[key] || [];
+        const k = btn.dataset.k;
+        let next;
+        if(cur.includes(k)) next = cur.filter(x=>x!==k);
+        else next = cur.length >= q.pick ? cur : cur.concat(k);
+        state[key] = next;
+        group.querySelectorAll(".opt").forEach(o=>o.classList.toggle("sel", next.includes(o.dataset.k)));
+      } else {
+        state[key] = btn.dataset.k;
+        group.querySelectorAll(".opt").forEach(o=>o.classList.toggle("sel", o===btn));
+      }
+    });
+  });
+
+  const mb = card.querySelector(".btn-model");
+  if(mb){
+    mb.addEventListener("click", ()=>{
+      const m = card.querySelector(".model");
+      m.classList.toggle("show");
+      mb.textContent = m.classList.contains("show") ? "模範解答を閉じる" : "模範解答と採点ポイントを見る";
+    });
+  }
+  quizBox.appendChild(card);
+});
+
+function grade(){
+  let correct = 0, total = 0;
+  QUESTIONS.forEach(q=>{
+    if(q.type === "multi-blank"){
+      q.subs.forEach(s=>{
+        total++;
+        const key = `${q.id}_${s.key}`;
+        const group = document.querySelector(`.opts[data-key="${key}"]`);
+        group.querySelectorAll(".opt").forEach(o=>{
+          o.classList.remove("sel");
+          const k = o.dataset.k;
+          if(k === s.ans) o.classList.add("correct");
+          else if(k === state[key]) o.classList.add("wrong");
+        });
+        if(state[key] === s.ans) correct++;
+      });
+    } else if(q.type === "choice"){
+      total++;
+      const group = document.querySelector(`.opts[data-key="${q.id}"]`);
+      group.querySelectorAll(".opt").forEach(o=>{
+        o.classList.remove("sel");
+        const k = o.dataset.k;
+        if(k === q.ans) o.classList.add("correct");
+        else if(k === state[q.id]) o.classList.add("wrong");
+      });
+      if(state[q.id] === q.ans) correct++;
+    } else if(q.type === "multi"){
+      total++;
+      const group = document.querySelector(`.opts[data-key="${q.id}"]`);
+      const sel = state[q.id] || [];
+      group.querySelectorAll(".opt").forEach(o=>{
+        o.classList.remove("sel");
+        const k = o.dataset.k;
+        if(q.ans.includes(k)) o.classList.add("correct");
+        else if(sel.includes(k)) o.classList.add("wrong");
+      });
+      if(sel.length === q.pick && q.ans.every(a=>sel.includes(a))) correct++;
+    }
+    const exp = document.querySelector(`#${q.id} .exp`);
+    if(exp) exp.classList.add("show");
+    const m = document.querySelector(`#${q.id} .model`);
+    if(m){
+      m.classList.add("show");
+      const b = document.querySelector(`#${q.id} .btn-model`);
+      if(b) b.textContent = "模範解答を閉じる";
+    }
+  });
+  document.getElementById("score-text").textContent = `選択問題：${total}問中 ${correct}問正解`;
+}
+document.getElementById("btn-grade").addEventListener("click", grade);
+document.getElementById("btn-qreset").addEventListener("click", ()=>{
+  Object.keys(state).forEach(k=>delete state[k]);
+  document.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel","correct","wrong"));
+  document.querySelectorAll(".exp").forEach(e=>e.classList.remove("show"));
+  document.querySelectorAll(".model").forEach(m=>m.classList.remove("show"));
+  document.querySelectorAll(".btn-model").forEach(b=>b.textContent="模範解答と採点ポイントを見る");
+  document.querySelectorAll("#quiz textarea").forEach(t=>t.value="");
+  document.getElementById("score-text").textContent = "選択問題：未採点（全6問）";
+  window.scrollTo({top:document.querySelector("nav.tabs").offsetTop, behavior:"smooth"});
+});
+
+// --- grammar ---
+const gBox = document.getElementById("grammar");
+GRAMMAR.forEach((g,i)=>{
+  gBox.appendChild(el(`<details class="gitem">
+    <summary><span><span style="color:var(--muted);font-size:12px">${String(i+1).padStart(2,"0")}</span>　<span class="gt">${g.t}</span></span></summary>
+    <div class="gbody">${g.d}</div>
+  </details>`));
+});
+document.getElementById("btn-gall").addEventListener("click", ()=>document.querySelectorAll(".gitem").forEach(d=>d.open=true));
+document.getElementById("btn-gclose").addEventListener("click", ()=>document.querySelectorAll(".gitem").forEach(d=>d.open=false));
+
+// --- flow ---
+const flowBox = document.getElementById("flow");
+FLOW.forEach(([p,txt,kind])=>{
+  const color = kind==="main" ? "var(--warm)" : kind==="turn" ? "var(--accent)" : "var(--line)";
+  flowBox.appendChild(el(`<div class="para" style="padding:12px 16px;margin-bottom:8px;border-left:4px solid ${color}">
+    <div style="display:flex;gap:12px;align-items:flex-start">
+      <span class="pnum" style="flex:none">${p}</span>
+      <span style="font-size:14.5px;line-height:1.8">${txt}</span>
+    </div>
+  </div>`));
+});
+
+// --- tabs ---
+document.querySelector(".tablist").addEventListener("click", e=>{
+  const t = e.target.closest(".tab");
+  if(!t) return;
+  document.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-selected", String(x===t)));
+  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active", p.id === "panel-"+t.dataset.panel));
+  window.scrollTo({top:0, behavior:"instant" in window ? "instant" : "auto"});
+});
+</script>
+</body>
+</html>

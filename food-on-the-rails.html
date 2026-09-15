@@ -278,6 +278,42 @@
   .gbody .ex{font-family:var(--en); font-style:italic; background:var(--line-soft); padding:2px 6px; border-radius:4px}
   .gbody p{margin:0 0 8px}
 
+  /* ---------- style notes ---------- */
+  .callout{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 20px; margin-bottom:14px; font-size:14.5px; line-height:1.9; box-shadow:var(--shadow);
+  }
+  .callout p{margin:0 0 10px}
+  .callout p:last-child{margin-bottom:0}
+  .callout h3{margin:0 0 8px; font-size:14.5px; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+  .callout.star{border-left:4px solid var(--warm)}
+  .callout.teach{background:var(--accent-soft)}
+  .callout ul{margin:8px 0 0; padding-left:20px}
+  .callout li{margin-bottom:7px}
+  .callout li:last-child{margin-bottom:0}
+  .badge-star{
+    font-size:10.5px; font-weight:700; color:#fff; background:var(--warm);
+    padding:2px 9px; border-radius:999px; letter-spacing:.04em;
+  }
+  .kv{font-family:var(--en); font-style:italic; font-weight:600}
+  .tbl-wrap{
+    overflow-x:auto; background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:4px 16px 12px; margin-bottom:14px; box-shadow:var(--shadow);
+  }
+  .tbl{width:100%; border-collapse:collapse; font-size:14px; min-width:420px}
+  .tbl th,.tbl td{border-bottom:1px solid var(--line-soft); padding:9px 10px; text-align:left; vertical-align:top}
+  .tbl th{font-size:11.5px; letter-spacing:.05em; color:var(--muted); font-weight:700; white-space:nowrap}
+  .tbl td.w{font-family:var(--en); font-weight:600; white-space:nowrap}
+  .tbl td.ex{font-family:var(--en); font-style:italic; color:var(--ink-soft); font-size:13.5px}
+  .tbl tr:last-child td{border-bottom:0}
+  .appos{
+    background:var(--line-soft); border-radius:10px; padding:15px 17px; margin:12px 0;
+    font-family:var(--en); font-size:15px; line-height:1.75;
+  }
+  .appos .core{display:block; font-weight:700; color:var(--warm); margin-bottom:8px}
+  .appos .ap{display:block; padding-left:16px; border-left:2px solid var(--line); margin-bottom:6px}
+  .appos .jp{font-family:var(--jp); font-size:12.5px; color:var(--muted); margin-left:6px}
+
   footer.site{
     margin-top:46px; padding:22px 0 10px; border-top:1px solid var(--line);
     font-size:12.5px; color:var(--muted); line-height:1.8;
@@ -321,6 +357,7 @@
       <button class="tab" role="tab" aria-selected="false" data-panel="vocab">単語リスト</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="quiz">設問演習・解説</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="grammar">構文・文法メモ</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="style">文体・語法の難所</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="summary">要旨マップ</button>
     </div>
   </div>
@@ -393,6 +430,133 @@
       <button class="btn" id="btn-gclose">すべて閉じる</button>
     </div>
     <div id="grammar"></div>
+  </section>
+
+  <!-- ============ STYLE NOTES ============ -->
+  <section class="panel" id="panel-style">
+    <p class="lead">この文章の難しさは語彙の量ではなく「引用の文体」に集中しています。地の文（著者クインジオの現代英語）は標準的で、難所は19世紀の引用と最終段落に固まっています。</p>
+
+    <div class="callout teach">
+      <h3>難所の地図</h3>
+      <p><b>地の文は標準的な現代英語です。</b>設問6問の根拠は、すべて地の文か、引用の中でも平易な部分にあります。
+      <b>最難関であるトロロープの引用は、一度も設問に絡んでいません。</b></p>
+      <p>生徒には「カギカッコの中は<i>罵倒している</i>という雰囲気だけ取れれば十分。点になるのは地の文」と割り切らせてよい文章です。</p>
+    </div>
+
+    <h2 class="sec">1. 最難関は「文ではない文」</h2>
+    <div class="callout">
+      <p>トロロープの引用には<b>主語と述語がありません。</b>That whited sepulchre を、such a thing of ~、such a dab of ~ と<b>同格で言い換え続けているだけ</b>の名詞句の羅列です。</p>
+      <div class="appos">
+        <span class="core">That whited sepulchre<span class="jp">← これが核。以下すべて同格の言い換え</span></span>
+        <span class="ap">fair enough outside,<span class="jp">外見だけは立派</span></span>
+        <span class="ap">but so meagre, poor, and spiritless within,<span class="jp">中身は貧相・乏しい・生気がない（三語並列）</span></span>
+        <span class="ap">such a thing of shreds and parings,<span class="jp">切れ端と削りくずの寄せ集め</span></span>
+        <span class="ap">such a dab of food,<span class="jp">ほんのひとかけらの食べ物</span></span>
+        <span class="ap">telling us that the poor bone ... had been made utterly bare<span class="jp">分詞構文。ここでようやく動詞らしきものが出る</span></span>
+      </div>
+      <p>「主語はどれ、動詞はどれ」と探すと必ず詰まります。<b>サンドイッチを罵倒する言葉を並べているだけ</b>と先に伝えてしまうのが早道です。<br>
+      meagre, poor, and spiritless の三語並列、gristle and grease、shreds and parings の頭韻も、意味より響きで選ばれた語です。</p>
+    </div>
+
+    <h2 class="sec">2. 古語・死語（読めればよい、覚える必要なし）</h2>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <tr><th>語</th><th>本文</th><th>意味</th><th>現代なら</th></tr>
+        <tr><td class="w">whence</td><td class="ex">the poor bone whence it was scraped</td><td>そこから</td><td class="w">from which</td></tr>
+        <tr><td class="w">thereof</td><td class="ex">the freshness, or lack thereof</td><td>それの</td><td class="w">of it</td></tr>
+        <tr><td class="w">mortal</td><td class="ex">for twelve mortal hours</td><td>まる〜、うんざりするほど長い</td><td class="w">whole（強意）</td></tr>
+        <tr><td class="w">fair</td><td class="ex">fair enough outside</td><td>見た目が美しい</td><td class="w">good-looking</td></tr>
+        <tr><td class="w">batten on</td><td class="ex">batten on buns（注の原文表現）</td><td>〜を食って肥える</td><td class="w">live on</td></tr>
+      </table>
+    </div>
+    <div class="callout">
+      <p><b>fair と mortal は「知っている単語の知らない意味」</b>で、辞書を引かずに誤読する典型です。高校で習うのは fair「公平な」、mortal「死すべき運命の・致命的な」。</p>
+      <p>出題者が batten on buns → live on bread に<b>書き換えている</b>のは、ここを高校範囲外と認めたということです。注のついた5語（Banbury cakes／batten on buns／Mugby Junction／sepulchre／Brief Encounter）は、出題者自身が引いた「ここまでは求めない」の線だと読めます。</p>
+    </div>
+
+    <h2 class="sec">3. 聖書・文学に由来する教養語</h2>
+    <div class="callout">
+      <ul>
+        <li><b>whited sepulchre（白く塗った墓）</b>— 新約聖書マタイ伝23章。外面だけ立派な偽善の象徴。しかも直後の <span class="kv">fair enough outside, but ... within</span> は、この聖句の「外側は美しく見えるが、内側は」という構造をそのままなぞっています。</li>
+        <li><b>a thing of shreds and parings</b> — シェイクスピア『ハムレット』の <span class="kv">a king of shreds and patches</span> を思わせる言い回し（参考程度で十分）。</li>
+        <li><b>turn a blind eye to ~（見て見ぬふりをする）</b> — ネルソン提督が望遠鏡を見えない方の目に当てたという逸話に由来。こちらは現代でも普通に使う重要イディオムです。</li>
+      </ul>
+    </div>
+
+    <h2 class="sec">4. 気取った・遠回しな言い方</h2>
+    <div class="callout">
+      <ul>
+        <li><span class="kv">rested substantially on the same foundation</span><br>
+          「紅茶とスープが実質的に同じ土台の上に」＝<b>同じ煮出し汁で作っていた</b>という皮肉。直接けなさずに持って回るのが19世紀の紳士的文体です。</li>
+        <li><span class="kv">or lack thereof</span><br>
+          「新鮮さ、いやその欠如」。決まり文句としての皮肉。</li>
+        <li><span class="kv">as horrendous as it was over-priced</span><br>
+          同一のものの2つの性質を as 〜 as で並べる修辞。「高いのと<b>同じくらい</b>ひどい」＝<b>高いうえにまずい</b>。「同じくらい」と訳して意味を取り損ねる生徒が多いところです。</li>
+        <li><span class="kv">Anybody with any sense</span><br>
+          any の強調。「多少とも分別のある者なら（誰でも）」。</li>
+        <li><span class="kv">the universal curry and rice</span><br>
+          universal＝「どこにでもある」。見下しのニュアンス。設問5の根拠の一部です。</li>
+      </ul>
+    </div>
+
+    <h2 class="sec">5. イギリス英語</h2>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <tr><th>本文（英）</th><th>アメリカ式</th><th>メモ</th></tr>
+        <tr><td class="w">meagre</td><td class="w">meager</td><td>-re / -er</td></tr>
+        <tr><td class="w">sepulchre</td><td class="w">sepulcher</td><td>-re / -er</td></tr>
+        <tr><td class="w">travelled</td><td class="w">traveled</td><td>l を重ねる</td></tr>
+        <tr><td class="w">luke-warm</td><td class="w">lukewarm</td><td>ハイフンを残す古い書き方</td></tr>
+        <tr><td class="w">over-priced</td><td class="w">overpriced</td><td>同上</td></tr>
+      </table>
+    </div>
+    <div class="callout">
+      <p><b>railway（英）と railroad（米）が混在しています。</b>冒頭が典型で、The English were <b>railroad</b> pioneers, and their <b>railway</b> system... 著者がアメリカ人なので米語が出ますが、英国の鉄道そのものは railway です。</p>
+      <ul>
+        <li><b>refreshment room</b>（駅の軽食堂）、<b>Junction</b>（接続駅。Clapham Junction のように英国の駅名によく付く）、<b>urn</b>（駅の大型給湯容器）</li>
+        <li><b>pork pie / sausage roll / Banbury cake / mutton / snipe, partridge, quail</b> — 英国の食卓と狩猟鳥の語彙</li>
+        <li><b>out the back</b>（裏手で）— 英・豪・NZの口語。米なら out back</li>
+        <li><b>the Raj</b>（英領インド統治）、<b>Calcutta / Bombay</b>（現 Kolkata / Mumbai）、<b>kababs / pilaus</b>（インド英語の綴り）</li>
+      </ul>
+      <p style="margin-top:12px"><b>英国的な約束事が2つ。</b><br>
+      ① <b>the English と the British</b> — 前者はイングランド人、後者はスコットランドなどを含む英国人。本文は厳密に区別せず使っています。<br>
+      ② <b>Sir William Acworth</b> — 「Sir ＋ ファーストネーム」で呼ぶのが英国の作法。Sir Acworth とは言いません。</p>
+    </div>
+
+    <h2 class="sec">6. 現代英語だが高校では扱わないもの</h2>
+    <p class="lead">ここが実は一番点差になります。</p>
+
+    <div class="callout star">
+      <h3>for ＝「というのは〜だから」（接続詞）<span class="badge-star">最重要</span></h3>
+      <p><span class="kv">..., for the food was as horrendous as it was over-priced.</span><br>
+      前置詞の for しか知らないと、この一文で完全に迷子になります。理由を後から付け足す等位接続詞で、because より文語的。</p>
+    </div>
+
+    <div class="callout star">
+      <h3>provided が1文に2回、別の意味で出てくる<span class="badge-star">要注意</span></h3>
+      <p><span class="kv">... <b>provided</b> a temptation to many a European traveller, <b>provided</b> they could turn a blind eye to the kitchen conditions out the back.</span></p>
+      <p>前は動詞「与えた」、後ろは接続詞「〜という条件で（＝if）」。同じ語形が3語違いで別品詞として並ぶ、意地の悪い箇所です。</p>
+    </div>
+
+    <div class="callout">
+      <ul>
+        <li><span class="kv">the delicious aromas of kababs and the pilaus which wafted from them</span><br>
+          漂うのはピラフではなく <b>aromas</b>。関係詞の先行詞が離れていて紛らわしい箇所です。</li>
+        <li><span class="kv">many a European traveller</span> — many a ＋ 単数名詞（文語）。意味は複数でも動詞は単数扱い。</li>
+        <li><span class="kv">they don't believe the sandwiches are fresh</span> — 性別を特定しない<b>単数の they</b>。古風ではなく、むしろ現代的な用法です。</li>
+        <li><b>patron</b> ＝ 常連客（「後援者」ではない）</li>
+        <li>知っている単語の知らない意味：<b>number</b>（自動詞「総計〜になる」）、<b>room</b>（不可算「余地」）、<b>institute</b>（動詞「制度を設ける」）、<b>author</b>（動詞「執筆する」）、<b>slow</b>（他動詞「遅らせる」）</li>
+      </ul>
+    </div>
+
+    <h2 class="sec">7. 指導上の線引き</h2>
+    <div class="callout teach">
+      <p><b>覚えさせる価値があるもの</b><br>
+      <span class="kv">for</span>（接続詞）、<span class="kv">provided (that)</span>、<span class="kv">extend to</span>、<span class="kv">much room for</span>、<span class="kv">number</span>（自動詞）、<span class="kv">turn a blind eye to</span>、<span class="kv">dismissive of</span>、<span class="kv">acknowledge</span>、<span class="kv">ridicule</span></p>
+      <p><b>見せるだけでよいもの</b><br>
+      <span class="kv">whence</span>、<span class="kv">thereof</span>、<span class="kv">mortal</span>（強意）、<span class="kv">batten on</span>、<span class="kv">whited sepulchre</span>、<span class="kv">shreds and parings</span>、狩猟鳥の名前（snipe／partridge／quail）</p>
+      <p style="margin-bottom:0">「こういうものがある」と一度見せておけば十分で、暗記は不要です。むしろ<b>知らない語に当たっても文全体の方向（ほめている／けなしている）を見失わない読み方</b>を、この文章で練習させるのが効果的です。</p>
+    </div>
   </section>
 
   <!-- ============ SUMMARY ============ -->
